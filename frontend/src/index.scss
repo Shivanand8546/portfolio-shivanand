@@ -1,0 +1,111 @@
+@import "./themes.scss";
+@mixin small{
+    @media (max-width:568px) {
+        @content;
+    }
+}
+@mixin mobile {
+    @media (max-width: 738px) {
+      @content;
+    }
+}
+@mixin tablet {
+    @media (max-width: 1024px) {
+      @content;
+    }
+}
+@mixin desktop {
+    @media (max-width: 1366px) {
+      @content;
+    }
+}
+
+html{
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    color: $textColor;
+    text-decoration: none;
+    list-style: none;
+    body{
+        background: $backgroundGradient;
+        overflow-x: hidden;
+    }
+    a{
+        color: $textColor;
+    }
+    a:hover{
+        color: $linkHover;
+    }
+    button{
+        cursor: pointer;
+        background: $buttonGradient;
+        color: $textColor;
+        border: none;
+        font-size: 1rem;
+        border-radius: $borderRadiusLow;
+        padding: $paddingLow $paddingHigh ;
+        box-shadow: $buttonShadow;
+        filter: brightness(1.2);
+        letter-spacing: 1px;
+        text-shadow: 0px 0px 2px #030303;
+        &:hover{
+            background-position: $buttonHover;
+        }
+        &:active{
+            background: $buttonHover;
+        }
+    }
+
+    &::selection{
+        color: $textColor;
+        background: $mainColor;
+    }
+
+    &::-webkit-scrollbar{
+        width: 7px;
+    }
+
+    &::-webkit-scrollbar-track{
+        background: linear-gradient(180deg, #8e7eaa, #b83585);
+        @include mobile{
+            display: none;
+        }
+    }
+    
+    &::-webkit-scrollbar-thumb{
+        background: $buttonGradient;
+        border-radius: $borderRadiusHigh;
+        @include mobile{
+            display: none;
+        }
+    }
+    
+    &::-webkit-scrollbar-thumb:hover{
+        background: $buttonHover;
+        @include mobile{
+            display: none;
+        }
+    }
+    
+    &::-webkit-scrollbar-thumb:active{
+        display: none;
+        background: $buttonHover;
+        @include mobile{
+            display: none;
+        }
+    }
+    
+}
+.section {
+    width: 100vw;
+    overflow-x: hidden;
+}
+  

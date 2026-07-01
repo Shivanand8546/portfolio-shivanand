@@ -1,0 +1,232 @@
+@import "../../index.scss";
+@import "../../themes.scss";
+
+.hero {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+    background: #050510;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    opacity: 0.35;
+}
+
+.hero__overlay__left {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, #050510 18%, transparent 55%, #050510 100%);
+}
+
+.hero__overlay__bottom {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, #050510 8%, transparent 40%);
+}
+
+.hero__content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.9rem;
+    padding: 4rem 2rem 5rem;
+    max-width: 680px;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(106, 48, 147, 0.2);
+    border: 1px solid rgba(106, 48, 147, 0.5);
+    border-radius: 999px;
+    padding: 6px 18px;
+}
+
+.badge__dot {
+    width: 7px;
+    height: 7px;
+    background: $mainColor;
+    border-radius: 50%;
+    flex-shrink: 0;
+    animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.badge span {
+    font-size: 0.78rem;
+    color: #b39dea;
+    letter-spacing: 0.5px;
+}
+
+.greeting {
+    font-size: 1rem;
+    color: #8a7aaa;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.name {
+    font-size: 3.4rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.1;
+
+    span { color: $mainColor; }
+
+    @include mobile { font-size: 2.4rem; }
+}
+
+.role {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #b39dea;
+
+    @include mobile { font-size: 1rem; }
+}
+
+.divider {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #6a3093, transparent);
+    margin: 0.2rem auto;
+}
+
+.desc {
+    font-size: 0.88rem;
+    color: #6a5a8a;
+    line-height: 1.8;
+    max-width: 460px;
+}
+
+.stats__row {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    justify-content: center;
+    margin: 0.3rem 0;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.stat__num {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: $mainColor;
+}
+
+.stat__label {
+    font-size: 0.7rem;
+    color: #6a5a8a;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.stat__sep {
+    width: 1px;
+    height: 40px;
+    background: #2a1a4a;
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 0.4rem;
+}
+
+.btn__primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: $buttonGradient;
+    color: #fff;
+    border: none;
+    padding: 11px 26px;
+    border-radius: $borderRadiusLow;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: $buttonShadow;
+    text-shadow: 0px 0px 2px #030303;
+
+    i { font-size: 16px; color: #fff; }
+}
+
+.btn__secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: #c0b0e0;
+    border: 1px solid #4a2a7a;
+    padding: 11px 26px;
+    border-radius: $borderRadiusLow;
+    font-size: 0.9rem;
+    font-weight: 400;
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color 0.2s;
+
+    &:hover { border-color: $mainColor; }
+    i { font-size: 16px; }
+}
+
+.social__links {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.soc__btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    background: rgba(106, 48, 147, 0.15);
+    border: 1px solid #2a1a4a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: border-color 0.2s, transform 0.2s;
+
+    i { font-size: 18px; color: #9b6ddf; }
+
+    &:hover {
+        border-color: $mainColor;
+        transform: translateY(-2px);
+    }
+}
+
+.scroll__div {
+    width: 40px;
+    height: 50px;
+    overflow: hidden;
+    margin-top: 0.5rem;
+
+    img { width: 100%; }
+}

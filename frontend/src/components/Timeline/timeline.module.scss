@@ -1,0 +1,123 @@
+@import "../../themes.scss";
+@import "../../index.scss";
+
+.timeline {
+    padding: 3rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+
+    @include mobile {
+        padding: 2rem 1rem;
+    }
+}
+
+.pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(74, 48, 128, 0.3);
+    color: #b39dea;
+    font-size: 0.85rem;
+    padding: 6px 18px;
+    border-radius: 999px;
+    margin-bottom: 1.2rem;
+    border: 1px solid rgba(106, 48, 147, 0.5);
+}
+
+.pill_dot {
+    width: 8px;
+    height: 8px;
+    background: $mainColor;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.heading {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #ffffff;
+    margin: 0 0 0.4rem;
+
+    @include mobile { font-size: 1.5rem; }
+}
+
+.subheading {
+    font-size: 0.9rem;
+    color: #8a7aaa;
+    margin-bottom: 2rem;
+}
+
+.cert_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+
+    @include mobile {
+        grid-template-columns: 1fr;
+    }
+}
+
+.cert_card {
+    background: #0d0d0d;
+    border: 1px solid #2a1a4a;
+    border-radius: 14px;
+    padding: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: border-color 0.25s ease, transform 0.2s ease;
+
+    &:hover {
+        border-color: $mainColor;
+        transform: translateY(-3px);
+    }
+}
+
+.cert_icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    i {
+        font-size: 26px;
+    }
+}
+
+.cert_info {
+    flex: 1;
+}
+
+.cert_title {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #f0ecff;
+    margin-bottom: 4px;
+    line-height: 1.3;
+}
+
+.cert_issuer {
+    font-size: 0.8rem;
+    color: #8a7aaa;
+    margin-bottom: 6px;
+}
+
+.cert_date {
+    font-size: 0.75rem;
+    color: #9b6ddf;
+    background: rgba(106, 48, 147, 0.2);
+    border: 1px solid rgba(106, 48, 147, 0.3);
+    padding: 2px 10px;
+    border-radius: 999px;
+}
+
+.cert_badge {
+    flex-shrink: 0;
+
+    i {
+        font-size: 24px;
+    }
+}

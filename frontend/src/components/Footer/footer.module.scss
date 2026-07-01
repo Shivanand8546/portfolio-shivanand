@@ -1,0 +1,158 @@
+@import "../../themes.scss";
+@import "../../index.scss";
+
+.footer {
+    padding: 3rem 2rem 1.5rem;
+    border-top: 1px solid #1a0a30;
+    max-width: 1100px;
+    margin: 0 auto;
+
+    @include mobile {
+        padding: 2rem 1rem 1rem;
+    }
+}
+
+.footer_top {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+
+    @include mobile {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+.brand_col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.brand_name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #ffffff;
+
+    span {
+        color: $mainColor;
+    }
+}
+
+.brand_desc {
+    font-size: 0.82rem;
+    color: #6a5a8a;
+    line-height: 1.7;
+    max-width: 240px;
+}
+
+.social_row {
+    display: flex;
+    gap: 8px;
+    margin-top: 0.3rem;
+}
+
+.soc {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    background: #1a0a30;
+    border: 1px solid #2a1a4a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+
+    i {
+        font-size: 17px;
+        color: #9b6ddf;
+    }
+
+    &:hover {
+        border-color: $mainColor;
+        transform: translateY(-2px);
+    }
+}
+
+.link_col {
+    display: flex;
+    flex-direction: column;
+}
+
+.col_title {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #f0ecff;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 1rem;
+}
+
+.col_links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.col_link {
+    font-size: 0.85rem;
+    color: #6a5a8a;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+
+    i {
+        font-size: 14px;
+        flex-shrink: 0;
+    }
+
+    &:hover {
+        color: $mainColor;
+    }
+}
+
+.divider {
+    height: 1px;
+    background: #1a0a30;
+    margin-bottom: 1.2rem;
+}
+
+.footer_bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include mobile {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+}
+
+.copy {
+    font-size: 0.8rem;
+    color: #4a3a6a;
+
+    span {
+        color: $mainColor;
+    }
+}
+
+.made_with {
+    font-size: 0.8rem;
+    color: #4a3a6a;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    i {
+        font-size: 14px;
+        color: #e05a5a;
+    }
+}
