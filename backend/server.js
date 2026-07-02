@@ -10,20 +10,33 @@ const cloudinary = require("cloudinary");
 
 const app = express();
 
+const allowedOrigins = [
+    "https://shivanandshukla.me",
+    "https://dashboard.shivanandshukla.me",
+    "https://portfolio-shivanand.vercel.app",
+    "http://localhost:5173",
+    "http://localhost:3000",
+    process.env.PORTFOLIO_URL,
+    process.env.DASHBOARD_URL,
+].filter(Boolean);
+
 app.use(
     cors({
-      origin: [process.env.PORTFOLIO_URL, process.env.DASHBOARD_URL],
+      origin: function(origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+      },
       methods: ["GET", "POST", "PUT", "DELETE"],
       credentials: true,
     })
 );
 
-
-
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 
 app.use(
     fileUpload({
@@ -33,8 +46,6 @@ app.use(
 );
 
 app.use("/api/v1", require("./routers/index"));
-
-
 
 app.use(notFound);
 app.use(errorHandler);
