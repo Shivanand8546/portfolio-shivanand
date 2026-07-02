@@ -13,6 +13,7 @@ const app = express();
 const allowedOrigins = [
     "https://shivanandshukla.me",
     "https://dashboard.shivanandshukla.me",
+    "https://portfolio-dashboard-7tyaf1lmw-shivanand21.vercel.app",
     "https://portfolio-shivanand.vercel.app",
     "http://localhost:5173",
     "http://localhost:3000",
