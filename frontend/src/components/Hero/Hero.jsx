@@ -24,7 +24,7 @@ const Hero = () => {
         <div className={styles.hero}>
             <img
                 className={styles.hero__bg}
-                src={user?.avatar?.url || "/ME2.jpg"}
+                src={user?.avatar?.url || "/ME2.png"}
                 alt="Shivanand Shukla"
             />
             <div className={styles.hero__overlay__left}></div>
@@ -76,14 +76,16 @@ const Hero = () => {
                     <a href="#Contact" className={styles.btn__primary}>
                         <i className="ti ti-mail" aria-hidden="true"></i> Contact Me
                     </a>
-                    <a
-                        href={user?.resume || "#"}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.btn__secondary}
-                    >
-                        <i className="ti ti-download" aria-hidden="true"></i> Download CV
-                    </a>
+                    {user?.resume && (
+                        <a
+                            href={user.resume}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.btn__secondary}
+                        >
+                            <i className="ti ti-download" aria-hidden="true"></i> Download CV
+                        </a>
+                    )}
                 </motion.div>
 
                 <motion.div variants={textVariants} className={styles.social__links}>
