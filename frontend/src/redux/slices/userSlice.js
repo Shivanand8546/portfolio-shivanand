@@ -33,7 +33,11 @@ export const userSlice = createSlice({
         loadUserFailed(state, action){
             state.loading = false;
             state.error = action.payload;
-            state.user = shivanandData; // fallback to hardcoded data
+            // Don't wipe out real data with the hardcoded fallback.
+            // Only use the fallback if we never loaded real data before.
+            if (!state.user || state.user === shivanandData) {
+                state.user = shivanandData;
+            }
         },
         clearAllErrors(state) {
             state.error = null;
@@ -41,18 +45,33 @@ export const userSlice = createSlice({
     }
 });
 
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
 export const getUser = ()=> async (dispatch)=>{
     dispatch(userSlice.actions.loadUserRequest());
-    try {
-        const {data} = await axios.get(
-            `${import.meta.env.VITE_BACKEND_URL}user/portfolio`
-            , {
-            withCredentials: true,
-        });
-        dispatch(userSlice.actions.loadUserSuccess(data.user));
-        dispatch(userSlice.actions.clearAllErrors())
-    } catch (error) {
-        dispatch(userSlice.actions.loadUserFailed("Failed to load user"));
+
+    const maxAttempts = 3;
+    // Render free-tier backends can take 30-50s to wake up from sleep,
+    // so we retry a few times with an increasing wait instead of giving up instantly.
+    for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+        try {
+            const {data} = await axios.get(
+                `${import.meta.env.VITE_BACKEND_URL}user/portfolio`
+                , {
+                withCredentials: true,
+                timeout: 20000, // 20s per attempt
+            });
+            dispatch(userSlice.actions.loadUserSuccess(data.user));
+            dispatch(userSlice.actions.clearAllErrors());
+            return;
+        } catch (error) {
+            const isLastAttempt = attempt === maxAttempts;
+            if (isLastAttempt) {
+                dispatch(userSlice.actions.loadUserFailed("Failed to load user"));
+            } else {
+                await sleep(attempt * 3000); // 3s, then 6s before retrying
+            }
+        }
     }
 }
 
