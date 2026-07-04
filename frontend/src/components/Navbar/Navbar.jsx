@@ -57,14 +57,16 @@ const Navbar = () => {
 
             {/* Right Side */}
             <div className={styles.nav_right}>
-                <a
-                    href={user?.resume || "#"}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.resume_btn}
-                >
-                    <i className="ti ti-download" aria-hidden="true"></i> Resume
-                </a>
+                {user?.resume && (
+                    <a
+                        href={user.resume}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.resume_btn}
+                    >
+                        <i className="ti ti-download" aria-hidden="true"></i> Resume
+                    </a>
+                )}
                 <button
                     className={styles.menu_btn}
                     onClick={() => setMenuOpen(!menuOpen)}
@@ -87,15 +89,17 @@ const Navbar = () => {
                             {link.label}
                         </a>
                     ))}
-                    <a
-                        href={user?.resume || "#"}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.resume_btn}
-                        style={{ marginTop: "0.5rem", justifyContent: "center" }}
-                    >
-                        <i className="ti ti-download" aria-hidden="true"></i> Resume
-                    </a>
+                    {user?.resume && (
+                        <a
+                            href={user.resume}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.resume_btn}
+                            style={{ marginTop: "0.5rem", justifyContent: "center" }}
+                        >
+                            <i className="ti ti-download" aria-hidden="true"></i> Resume
+                        </a>
+                    )}
                 </div>
             )}
         </nav>
