@@ -177,8 +177,18 @@ const updatePassword = expressAsyncHandler(async (req,res)=>{
 });
 
 const getPortfolioUser = expressAsyncHandler(async (req,res)=>{
-    const id = process.env.MONGO_DB_ID;
-    const user = await User.findById(id);
+    // This app only ever has one portfolio owner, so instead of relying on a
+    // hardcoded MONGO_DB_ID env var (which can silently go stale/mismatched
+    // if the database is ever reset or recreated), we just fetch that one user.
+    // We fall back to MONGO_DB_ID first (if set) for backwards compatibility,
+    // then fall back to the only user in the collection.
+    let user = null;
+    if (process.env.MONGO_DB_ID) {
+        user = await User.findById(process.env.MONGO_DB_ID).catch(() => null);
+    }
+    if (!user) {
+        user = await User.findOne();
+    }
     res.status(200).json({status:true,
         user
     })
