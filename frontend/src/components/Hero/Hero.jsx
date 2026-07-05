@@ -67,7 +67,7 @@ const Hero = () => {
                     </div>
                     <div className={styles.stat__sep}></div>
                     <div className={styles.stat}>
-                        <span className={styles.stat__num}>4</span>
+                        <span className={styles.stat__num}>8+</span>
                         <span className={styles.stat__label}>Certifications</span>
                     </div>
                 </motion.div>
