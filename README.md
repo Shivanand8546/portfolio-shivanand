@@ -1,11 +1,7 @@
 <div align="center">
 
 # 🚀 Shivanand Shukla — Portfolio
-
-A full-stack MERN portfolio platform with a custom admin dashboard for managing content — projects, skills, timeline, messages, and profile — without touching code.
-
 [![Live Site](https://img.shields.io/badge/Live-shivanandshukla.me-6c47ff?style=for-the-badge)](https://shivanandshukla.me)
-[![Dashboard](https://img.shields.io/badge/Dashboard-Admin_Panel-1f2937?style=for-the-badge)](https://dashboard.shivanandshukla.me)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](#-license)
 
 </div>
