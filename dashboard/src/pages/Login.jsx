@@ -24,7 +24,7 @@ export default function Login() {
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
           <div>
             <label style={{ fontSize: '0.8rem', color: '#8a7aaa', display: 'block', marginBottom: 6 }}>Email</label>
-            <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="shivanand2124@gmail.com" required
+            <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="_________" required
               style={{ width: '100%', background: '#0a0a18', border: '1px solid #2a1a4a', borderRadius: 8, padding: '10px 14px', color: '#c0b0e0', fontSize: '0.9rem', outline: 'none' }} />
           </div>
           <div>
