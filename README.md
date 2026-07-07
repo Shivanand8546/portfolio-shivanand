@@ -243,15 +243,6 @@ VITE_BACKEND_URL=https://your-backend-url.onrender.com/api/v1/
 
 ---
 
-## 🗺️ Roadmap
-
-- [ ] Blog section
-- [ ] Dark/light theme toggle
-- [ ] Analytics dashboard for visitor stats
-- [ ] Automated Cloudinary cleanup for replaced files
-
----
-
 ## 👨‍💻 Author
 
 **Shivanand Shukla**
